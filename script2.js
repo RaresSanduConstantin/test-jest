@@ -3,27 +3,29 @@ const fetch = require('node-fetch');
 
 const getPeoplePromise = (fetch) => {
   return fetch('http://swapi.py4e.com/api/people')
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+
       return {
         count: data.count,
-        results: data.results
-      }
-    })
-}
+        results: data.results,
+      };
+    });
+};
 const getPeople = async (fetch) => {
   const getRequest = await fetch('http://swapi.py4e.com/api/people');
-  const data =  await getRequest.json();
-  // console.log(data);
+  const data = await getRequest.json();
+  console.log(data);
   return {
     count: data.count,
-    results: data.results
+    results: data.results,
   };
-}
+};
 // getPeople();
-// getPeoplePromise();
+console.log(getPeoplePromise(fetch));
 
-module.exports = {
-  getPeople,
-  getPeoplePromise
-}
+// module.exports = {
+//   getPeople,
+//   getPeoplePromise
+// }
