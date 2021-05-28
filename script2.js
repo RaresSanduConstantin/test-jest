@@ -5,7 +5,7 @@ const getPeoplePromise = (fetch) => {
   return fetch('http://swapi.py4e.com/api/people')
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log(data, '1');
 
       return {
         count: data.count,
